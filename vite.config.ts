@@ -8,6 +8,9 @@ import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import { presetAttributify, presetIcons, presetUno } from 'unocss'
 import Unocss from 'unocss/vite'
+import {
+  PrimeVueResolver,
+} from 'unplugin-vue-components/resolvers'
 
 export default defineConfig({
   resolve: {
@@ -27,7 +30,7 @@ export default defineConfig({
         'vue',
         'vue-router',
         '@vueuse/core',
-        'vitest',
+        // 'vitest', // will cause error in non-test code
       ],
       dts: true,
     }),
@@ -35,6 +38,13 @@ export default defineConfig({
     // https://github.com/antfu/vite-plugin-components
     Components({
       dts: true,
+      resolvers: [
+        PrimeVueResolver({
+          importStyle: true,
+          importIcons: true,
+          prefix: 'Prime',
+        }),
+      ],
     }),
 
     // https://github.com/antfu/unocss

@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@vueuse/core": "^7.5.3",
+    "primeicons": "^5.0.0",
+    "primevue": "3.11.0",
     "vue": "^3.2.26",
     "vue-router": "^4.0.12"
   },
